@@ -40,8 +40,13 @@ class UsersController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
-        $user->name = $request->name;
+        $user->password = Hash::make($request->password);
+        $user->role_id = $request->role_id;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->sex = $request->sex;
+        $user->age = $request->age;
+        $user->license_number = $request->license_number;
         $user->save();
         return response($user, 200);
     }
@@ -54,7 +59,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return response($user, 200);
     }
 
     /**
@@ -78,14 +84,15 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        if($request->name){
-            $user->name = $request->name;
-        }
-        
+        $user->name = $request->name;        
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
-        
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->sex = $request->sex;
+        $user->age = $request->age;
+        $user->license_number = $request->license_number;
         $user->save();
         return response($user, 200);
     }

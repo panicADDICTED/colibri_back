@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 
 //USER
+Route::resource('users', UsersController::class);
 Route::post('/user/update/{id}', [UsersController::class, 'update']);
 Route::post('/user/delete/{id}', [UsersController::class, 'destroy']);
+
+//ROLES
+Route::resource('roles', RolesController::class);
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
