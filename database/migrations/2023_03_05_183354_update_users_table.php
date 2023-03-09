@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('sex');
             $table->string('age');
             $table->string('license_number');
+            $table->softDeletes();
         });
     }
 
