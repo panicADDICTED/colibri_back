@@ -27,7 +27,7 @@ Route::post('/auth/login', [AuthController::class, 'loginUser']);
 //USER
 Route::resource('users', UsersController::class);
 Route::post('/user/update/{id}', [UsersController::class, 'update']);
-Route::post('/user/delete/{id}', [UsersController::class, 'destroy']);
+Route::put('/user/delete/{id}', [UsersController::class, 'deleteUser']);
 
 //ROLES
 Route::resource('roles', RolesController::class);

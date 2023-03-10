@@ -15,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('visible', 1)->get();
         return response($users, 200);
     }
 
@@ -109,5 +109,13 @@ class UsersController extends Controller
         
         $user->delete();
         return response('user delete succesfully', 200);
+    }
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        
+        $user->visible = 0;
+        $user->save();
+        return response($user,  200);
     }
 }
