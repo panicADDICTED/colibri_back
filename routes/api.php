@@ -35,6 +35,6 @@ Route::resource('roles', RolesController::class);
 
 //VEHICLES
 Route::resource('vehicles', VehicleController::class);
-Route::put('/vehicle/delete/{id}', [VehicleController::class, 'update']);
+Route::put('/vehicle/delete/{id}', [VehicleController::class, 'deleteVehicle']);
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
