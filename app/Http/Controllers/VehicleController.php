@@ -14,7 +14,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
+        $vehicles = Vehicle::where('visible', 1)->get();
+        return response($vehicles, 200);
     }
 
     /**
@@ -24,7 +25,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,13 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehicle = new Vehicle();
+        $vehicle->mark = $request->mark;
+        $vehicle->capacity = $request->capacity;
+        $vehicle->color = $request->color;
+        $vehicle->plates = $request->plates;
+        $vehicle->save();
+        return response($vehicle, 200);
     }
 
     /**
@@ -44,9 +51,10 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        return response($vehicle, 200);
     }
 
     /**
@@ -55,7 +63,7 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicle $vehicle)
+    public function edit($id)
     {
         //
     }
@@ -67,9 +75,15 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(Request $request,  $id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        $vehicle->mark = $request->mark;
+        $vehicle->capacity = $request->capacity;
+        $vehicle->color = $request->color;
+        $vehicle->plates = $request->plates;
+        $vehicle->save();
+        return response($vehicle, 200);
     }
 
     /**
@@ -78,8 +92,17 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        $vehicle->delete();
+        return response($vehicle, 200);
+    }
+
+    public function deleteVehicle($id)
+    {
+        $vehicle = Vehicle::find($id);
+        $vehicle->visible = 0;
+        return response($vehicle, 200);
     }
 }

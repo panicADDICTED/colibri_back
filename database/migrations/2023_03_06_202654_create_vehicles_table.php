@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            // $table->string('');
-            // $table->string('');
-            // $table->string('');
-            // $table->string('');
-            // $table->string('');
+            $table->string('mark');
+            $table->string('capacity');
+            $table->string('color');
+            $table->string('plates');
+            $table->boolean('visible')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
