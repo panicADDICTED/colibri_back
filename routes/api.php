@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\RolesController;
-use App\Http\Controllers\VehiclesController;
+use App\Http\Controllers\VehicleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ Route::put('/user/delete/{id}', [UsersController::class, 'deleteUser']);
 Route::resource('roles', RolesController::class);
 
 //VEHICLES
-Route::resource('vehicles', VehiclesController::class);
-Route::put('/vehicle/delete/{id}', [VehiclesController::class, 'update']);
+Route::resource('vehicles', VehicleController::class);
+Route::put('/vehicle/delete/{id}', [VehicleController::class, 'update']);
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
