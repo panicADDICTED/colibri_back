@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Freight;
+use Illuminate\Http\Request;
+
+class FreightController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $freights = Freight::where('visible', 1)->get();
+        return response($freights, 200);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $freight = new Freight();
+        $freight->material_id = $request->material_id;
+        $freight->user_id = $request->user_id;
+        $freight->vehicle_id = $request->vehicle_id;
+        $freight->quantity = $request->quantity;
+        $freight->price = $request->price;
+        $freight->direction = $request->direction;
+        $freight->status = 'Iniciando el viaje';
+        $freight->save();
+        return response($freight, 200);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Freight  $freight
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $freight = Freight::find($id);
+        return response($freight, 200);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Freight  $freight
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Freight  $freight
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,  $id)
+    {
+        $freight = Freight::find($id);
+        $freight->material_id = $request->material_id;
+        $freight->user_id = $request->user_id;
+        $freight->vehicle_id = $request->vehicle_id;
+        $freight->quantity = $request->quantity;
+        $freight->price = $request->price;
+        $freight->direction = $request->direction;
+        $freight->status = $request->status;
+        $freight->save();
+        return response($freight, 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Freight  $freight
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $freight = Freight::find($id);
+        $freight->delete();
+        return response($freight, 200);
+    }
+
+    public function deleteFreight($id, Request $request)
+    {
+        $freight = Freight::find($id);
+        $freight->visible = $request->visible;
+        $freight->save();
+        return response($freight, 200);
+    }
+}

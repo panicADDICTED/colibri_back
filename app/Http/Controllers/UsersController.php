@@ -47,6 +47,9 @@ class UsersController extends Controller
         $user->sex = $request->sex;
         $user->age = $request->age;
         $user->license_number = $request->license_number;
+        if($request->role_id == 3){
+        $user->vehicle_id = $request->vehicle_id;
+        }
         $user->save();
         return response($user, 200);
     }
@@ -93,6 +96,9 @@ class UsersController extends Controller
         $user->sex = $request->sex;
         $user->age = $request->age;
         $user->license_number = $request->license_number;
+        if($request->role_id == 3){
+        $user->vehicle_id = $request->vehicle_id;
+    }
         $user->save();
         return response($user, 200);
     }
@@ -110,11 +116,11 @@ class UsersController extends Controller
         $user->delete();
         return response('user delete succesfully', 200);
     }
-    public function deleteUser($id)
+    public function deleteUser($id, Request $request)
     {
         $user = User::find($id);
         
-        $user->visible = 0;
+        $user->visible = $request->visible;
         $user->save();
         return response($user,  200);
     }
