@@ -65,11 +65,8 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        if($user->vehicle){
+        
         return response($user, 200);
-    }else{
-        return response($user, 200);
-    }
     }
 
     /**
