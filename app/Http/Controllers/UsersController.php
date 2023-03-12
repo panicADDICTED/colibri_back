@@ -51,7 +51,9 @@ class UsersController extends Controller
         $user->vehicle_id = $request->vehicle_id;
         }
         $user->save();
-        return response($user, 200);
+        if($user->vehicle)
+        return response($user , 200);
+            
     }
 
     /**
@@ -63,6 +65,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        if($user->vehicle)
         return response($user, 200);
     }
 
@@ -100,7 +103,8 @@ class UsersController extends Controller
         $user->vehicle_id = $request->vehicle_id;
     }
         $user->save();
-        return response($user, 200);
+        if($user->vehicle)
+        return response($user , 200);
     }
 
     /**
