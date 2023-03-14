@@ -41,6 +41,7 @@ class VehicleController extends Controller
         $vehicle->capacity = $request->capacity;
         $vehicle->color = $request->color;
         $vehicle->plates = $request->plates;
+        $vehicle->policy = $request->policy;
         $vehicle->save();
         return response($vehicle, 200);
     }
@@ -82,6 +83,7 @@ class VehicleController extends Controller
         $vehicle->capacity = $request->capacity;
         $vehicle->color = $request->color;
         $vehicle->plates = $request->plates;
+        $vehicle->policy = $request->policy;
         $vehicle->status = $request->status;
         $vehicle->save();
         return response($vehicle, 200);

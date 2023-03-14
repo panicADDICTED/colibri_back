@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('capacity');
             $table->string('color');
             $table->string('plates');
+            $table->string('policy');
             $table->boolean('status')->default(1);
             $table->boolean('visible')->default(1);
             $table->timestamps();

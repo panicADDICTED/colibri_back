@@ -15,10 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-          
+            VehicleSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
             MaterialSeeder::class,
+          
         ]);
         // \App\Models\User::factory(10)->create();
 
