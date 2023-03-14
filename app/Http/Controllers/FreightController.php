@@ -44,7 +44,7 @@ class FreightController extends Controller
         $freight->price = $request->price;
         $freight->direction = $request->direction;
         $freight->destiny = $request->destiny;
-        $freight->status = 'Iniciando el viaje';
+        $freight->status = $request->status;
         $freight->save();
         return response($freight, 200);
     }
