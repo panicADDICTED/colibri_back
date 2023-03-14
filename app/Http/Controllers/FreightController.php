@@ -59,6 +59,10 @@ class FreightController extends Controller
     public function show($id)
     {
         $freight = Freight::find($id);
+        $freight->vehicle;
+        $freight->vehicle->conductor;
+        $freight->client;
+        $freight->material;
         return response($freight, 200);
     }
 
