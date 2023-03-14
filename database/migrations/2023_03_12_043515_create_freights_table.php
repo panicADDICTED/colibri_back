@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('material_id');
             $table->string('quantity');
-            $table->string('address');
+            $table->string('direction');
             $table->string('destiny');
             $table->float('price');            
             $table->unsignedBigInteger('user_id');
