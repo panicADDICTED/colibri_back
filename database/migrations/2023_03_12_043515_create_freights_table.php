@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('quantity');
             $table->string('direction');
             $table->string('destiny');
-            $table->float('price');            
+            $table->float('price');
+            $table->text('observations')->nullable();            
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('vehicle_id');
             $table->boolean('visible')->default(1);

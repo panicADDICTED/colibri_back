@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Vehicle::class,'id', 'vehicle_id');
     }
+    public function freightsUser()
+    {
+        return $this->hasMany(Freight::class,'user_id', 'id');
+    }
 }

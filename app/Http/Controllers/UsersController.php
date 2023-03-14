@@ -72,7 +72,8 @@ class UsersController extends Controller
     public function showWorker($id)
     {
         $user = User::find($id);
-       $user->vehicle;
+        $user->vehicle;
+        $user->vehicle->freights;
         return response($user, 200);
     }
 

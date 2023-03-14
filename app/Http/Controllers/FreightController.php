@@ -44,6 +44,7 @@ class FreightController extends Controller
         $freight->price = $request->price;
         $freight->direction = $request->direction;
         $freight->destiny = $request->destiny;
+         $freight->observations = $request->observations;
         $freight->status = $request->status;
         $freight->save();
         return response($freight, 200);
@@ -89,6 +90,7 @@ class FreightController extends Controller
         $freight->price = $request->price;
         $freight->direction = $request->direction;
         $freight->destiny = $request->destiny;
+        $freight->observations = $request->observations;
         $freight->status = $request->status;
         $freight->save();
         return response($freight, 200);
