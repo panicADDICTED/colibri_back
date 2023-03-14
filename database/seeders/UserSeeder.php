@@ -28,6 +28,19 @@ class UserSeeder extends Seeder
             'role_id' => '1',
     ]);
 
+    User::create([
+        'name' => 'Jordan',
+        'last_name' => 'Tellez',
+        'phone' => '3322244554',
+        'email' => 'jordan@gmail.com',
+        'password' => Hash::make('123'),
+        'sex' => 'Hombre',
+        'age' => '22',
+        'vehicle_id' => 1,
+        'license_number' => '2111123',
+        'role_id' => '3',
+]);
+
     
     }
 }

@@ -69,6 +69,13 @@ class UsersController extends Controller
         return response($user, 200);
     }
 
+    public function showWorker($id)
+    {
+        $user = User::find($id);
+       $user->vehicle;
+        return response($user, 200);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
