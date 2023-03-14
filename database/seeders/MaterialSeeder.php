@@ -19,52 +19,48 @@ class MaterialSeeder extends Seeder
             [
             
                     'name' => 'Arena de rio',
-                    'description' => 'Arena de rio',
+                    'price' => 155,
                
             ]);
         Material::create(
             [
             
                     'name' => 'Arena de amarilla',
-                    'description' => 'Arena de amarilla',
+                    'price' => 150,
                
             ]);
         Material::create(
             [
             
                 'name' => 'Grava 3/4',
-                'description' => 'Grava 3/4',
-               
+                'price' => 300,               
             ]);
         Material::create(
             [
                 'name' => 'Grava 1 1/2',
-                'description' => 'Grava 1 1/2',
+                'price' => 280,
                
             ]);
         Material::create(
             [
                 'name' => 'Piedra para simiento',
-                'description' => 'Piedra para simiento',
+                'price' => 250,
                
             ]);
         Material::create(
             [
                 'name' => 'Tierra',
-                'description' => 'Tierra',
-               
+                'price' => 130,           
             ]);
           Material::create(
             [
                 'name' => 'Tezontle',
-                'description' => 'Tezontle',
-               
+                'price' => 310            
             ]);
           Material::create(
             [
                 'name' => 'Asfalto',
-                'description' => 'Asfalto',
-               
+                'price' => 2000,           
             ]);
                 
     }

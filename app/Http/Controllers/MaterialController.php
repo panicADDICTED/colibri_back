@@ -39,7 +39,7 @@ class MaterialController extends Controller
         $material =  new Material();
 
         $material->name = $request->name;
-        $material->description = $request->description;
+        $material->price = $request->price;
         $material->save();
         return response($material, 200);
     }
@@ -80,7 +80,7 @@ class MaterialController extends Controller
         $material = Material::find($id);
 
         $material->name = $request->name;
-        $material->description = $request->description;
+        $material->price = $request->price;
         $material->save();
         return response($material, 200);
     }
