@@ -42,7 +42,8 @@ class FreightController extends Controller
         $freight->vehicle_id = $request->vehicle_id;
         $freight->quantity = $request->quantity;
         $freight->price = $request->price;
-        $freight->direction = $request->direction;
+        $freight->address = $request->address;
+        $freight->destiny = $request->destiny;
         $freight->status = 'Iniciando el viaje';
         $freight->save();
         return response($freight, 200);
@@ -86,7 +87,8 @@ class FreightController extends Controller
         $freight->vehicle_id = $request->vehicle_id;
         $freight->quantity = $request->quantity;
         $freight->price = $request->price;
-        $freight->direction = $request->direction;
+        $freight->address = $request->address;
+        $freight->destiny = $request->destiny;
         $freight->status = $request->status;
         $freight->save();
         return response($freight, 200);
