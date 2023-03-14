@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string('destiny');
             $table->float('price');
             $table->text('observations')->nullable();            
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('vehicle_id');
             $table->boolean('visible')->default(1);
             $table->string('status');
             $table->timestamps();
             $table->foreign('material_id')->references('id')->on('materials');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('users');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }

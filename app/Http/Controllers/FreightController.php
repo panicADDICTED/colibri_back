@@ -38,7 +38,7 @@ class FreightController extends Controller
     {
         $freight = new Freight();
         $freight->material_id = $request->material_id;
-        $freight->user_id = $request->user_id;
+        $freight->client_id = $request->client_id;
         $freight->vehicle_id = $request->vehicle_id;
         $freight->quantity = $request->quantity;
         $freight->price = $request->price;
@@ -84,7 +84,7 @@ class FreightController extends Controller
     {
         $freight = Freight::find($id);
         $freight->material_id = $request->material_id;
-        $freight->user_id = $request->user_id;
+        $freight->client_id = $request->client_id;
         $freight->vehicle_id = $request->vehicle_id;
         $freight->quantity = $request->quantity;
         $freight->price = $request->price;
