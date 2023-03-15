@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Store;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -135,5 +136,34 @@ class UsersController extends Controller
         $user->visible = $request->visible;
         $user->save();
         return response($user,  200);
+    }
+
+    public function registerUserStore(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role_id = 1;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->sex = $request->sex;
+        $user->age = $request->age;
+        $user->license_number = $request->license_number;
+        if($request->role_id == 3){
+        $user->vehicle_id = $request->vehicle_id;
+        }
+        $user->save();
+        $store = new Store();
+        $store->user_id = $user->id;
+        $store->name = $request->store_name;
+        $store->rfc = $request->rfc;
+        $store->email = $request->store_email;
+        $store->phone_local = $request->phone_local;
+        $store->address = $request->address;
+        $store->save();
+        $user->store;
+        return response($user , 200);
+            
     }
 }

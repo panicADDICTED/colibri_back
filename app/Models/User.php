@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Freight::class,'user_id', 'id');
     }
+
+    public function store()
+    {
+        return $this->hasOne(Store::class,'user_id', 'id');
+    }
 }

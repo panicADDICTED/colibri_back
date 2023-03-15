@@ -32,6 +32,8 @@ Route::resource('users', UsersController::class);
 Route::post('/user/update/{id}', [UsersController::class, 'update']);
 Route::put('/user/delete/{id}', [UsersController::class, 'deleteUser']); 
 Route::get('/show-worker/{id}', [UsersController::class, 'showWorker']);
+Route::post('/register-user-store', [UsersController::class, 'registerUserStore']);
+
 //ROLES
 Route::resource('roles', RolesController::class);
 
