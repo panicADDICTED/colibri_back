@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Freight;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class FreightController extends Controller
@@ -48,6 +49,11 @@ class FreightController extends Controller
         $freight->observations = $request->observations;
         $freight->status = $request->status;
         $freight->save();
+
+        $vehicle = Vehicle::find( $freight->vehicle_id);
+        $vehicle->status = 0;
+        $vehicle->save();
+        $freight->vehicle;
         return response($freight, 200);
     }
 
@@ -127,6 +133,12 @@ class FreightController extends Controller
         $freight = Freight::find($id);
         $freight->status = $request->status;
         $freight->save();
+        if($freight->status == "Finalizado"){
+            $vehicle = Vehicle::find($freight->vehicle_id);
+            $vehicle->status = 1;
+            $vehicle->save();
+            $freight->vehicle;
+        }
         return response($freight, 200);
     }
 

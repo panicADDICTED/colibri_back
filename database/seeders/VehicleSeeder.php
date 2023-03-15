@@ -20,7 +20,8 @@ class VehicleSeeder extends Seeder
             'capacity' => '7',
             'color' => 'rojo',
             'plates' => 'QWE3-2334-455N',
-            'policy' => '2233232444'
+            'policy' => '2233232444',
+            'status' => 0,
          ]);
          Vehicle::create([
             'mark' => 'Dina',
