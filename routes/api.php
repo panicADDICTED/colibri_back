@@ -41,6 +41,8 @@ Route::resource('roles', RolesController::class);
 //VEHICLES
 Route::resource('vehicles', VehicleController::class);
 Route::put('/vehicle/delete/{id}', [VehicleController::class, 'deleteVehicle']);
+Route::get('/vehicles-enabled', [VehicleController::class, 'vehiclesEnabled']);
+
 
 //MATERIALS
 Route::resource('materials', MaterialController::class);

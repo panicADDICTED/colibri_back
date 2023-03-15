@@ -18,6 +18,12 @@ class VehicleController extends Controller
         return response($vehicles, 200);
     }
 
+    public function vehiclesEnabled()
+    {
+        $vehicles = Vehicle::where('visible', 1)->where('status', 1)->get();
+        return response($vehicles, 200);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
