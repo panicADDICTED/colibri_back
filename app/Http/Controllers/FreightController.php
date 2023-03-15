@@ -36,6 +36,7 @@ class FreightController extends Controller
      */
     public function store(Request $request)
     {
+
         $freight = new Freight();
         $freight->material_id = $request->material_id;
         $freight->client_id = $request->client_id;
@@ -44,7 +45,7 @@ class FreightController extends Controller
         $freight->price = $request->price;
         $freight->direction = $request->direction;
         $freight->destiny = $request->destiny;
-         $freight->observations = $request->observations;
+        $freight->observations = $request->observations;
         $freight->status = $request->status;
         $freight->save();
         return response($freight, 200);
@@ -120,4 +121,14 @@ class FreightController extends Controller
         $freight->save();
         return response($freight, 200);
     }
+
+    public function updateStatus($id, Request $request)
+    {
+        $freight = Freight::find($id);
+        $freight->status = $request->status;
+        $freight->save();
+        return response($freight, 200);
+    }
+
+
 }

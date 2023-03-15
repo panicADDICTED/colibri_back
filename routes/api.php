@@ -46,5 +46,6 @@ Route::put('/material/delete/{id}', [MaterialController::class, 'deleteMaterial'
 //FREIGHTS
 Route::resource('freights', FreightController::class);
 Route::put('/freight/delete/{id}', [FreightController::class, 'deleteFreight']);
+Route::put('/freight/update-status/{id}', [FreightController::class, 'updateStatus']);
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
