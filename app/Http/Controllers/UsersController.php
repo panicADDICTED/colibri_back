@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Store;
 use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -163,6 +164,34 @@ class UsersController extends Controller
         $store->address = $request->address;
         $store->save();
         $user->store;
+        return response($user , 200);
+            
+    }
+    public function registerUserConductor(Request $request)
+    {
+
+        $vehicle = new Vehicle();
+        $vehicle->mark = $request->mark;
+        $vehicle->capacity = $request->capacity;
+        $vehicle->color = $request->color;
+        $vehicle->plates = $request->plates;
+        $vehicle->policy = $request->policy;
+        $vehicle->save();
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role_id = 3;
+        $user->last_name = $request->last_name;
+        $user->phone = $request->phone;
+        $user->sex = $request->sex;
+        $user->age = $request->age;
+        $user->license_number = $request->license_number;
+        $user->vehicle_id = $vehicle->id;
+        $user->save();
+        
+        $user->vehicle;
         return response($user , 200);
             
     }
