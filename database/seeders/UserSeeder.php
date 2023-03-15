@@ -40,6 +40,16 @@ class UserSeeder extends Seeder
         'license_number' => '2111123',
         'role_id' => '3',
 ]);
+User::create([
+    'name' => 'Rcardo',
+    'last_name' => 'Gonzalez Rodriguez',
+    'phone' => '2333443233',
+    'email' => 'ricardo@gmail.com',
+    'password' => Hash::make('123'),
+    'sex' => 'Hombre',
+    'age' => '22',
+    'role_id' => '2',
+]);
 
     
     }
