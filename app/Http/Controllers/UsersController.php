@@ -195,4 +195,10 @@ class UsersController extends Controller
         return response($user , 200);
             
     }
+
+    public function allClients()
+    {
+        $users = User::where('visible', 1)->where('role_is', 2)->get();
+        return response($users, 200);
+    }
 }
