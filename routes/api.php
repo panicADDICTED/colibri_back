@@ -29,7 +29,7 @@ Route::post('/auth/login', [AuthController::class, 'loginUser']);
 
 //USER
 Route::resource('users', UsersController::class);
-Route::post('/users/show-clients', [UsersController::class, 'allClients']);
+Route::get('/all_clients', [UsersController::class, 'showClients']);
 Route::post('/user/update/{id}', [UsersController::class, 'update']);
 Route::put('/user/delete/{id}', [UsersController::class, 'deleteUser']); 
 Route::get('/show-worker/{id}', [UsersController::class, 'showWorker']);

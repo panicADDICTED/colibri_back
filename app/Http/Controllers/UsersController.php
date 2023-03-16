@@ -21,6 +21,12 @@ class UsersController extends Controller
         return response($users, 200);
     }
 
+    public function showClients()
+    {
+        $users = User::where('visible', 1)->where('role_id', 2)->get();
+        return response($users, 200);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -196,9 +202,5 @@ class UsersController extends Controller
             
     }
 
-    public function allClients()
-    {
-        $users = User::where('visible', 1)->where('role_id', 2)->get();
-        return response($users, 200);
-    }
+ 
 }
