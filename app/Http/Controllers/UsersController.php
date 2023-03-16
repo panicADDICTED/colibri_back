@@ -198,7 +198,7 @@ class UsersController extends Controller
 
     public function allClients()
     {
-        $users = User::where('visible', 1)->where('role_is', 2)->get();
+        $users = User::where('visible', 1)->where('role_id', 2)->get();
         return response($users, 200);
     }
 }
