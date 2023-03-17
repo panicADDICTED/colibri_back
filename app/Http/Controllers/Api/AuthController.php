@@ -100,4 +100,26 @@ class AuthController extends Controller
             ], 500);
         }
     }
+
+    public function loginMovil($email, $password){
+        try {
+       $user = User::where('email', $email)->first();
+        return response()->json([
+            'status' => true,
+            'name' => $user->name,
+            'last_name' => $user->last_name,
+            'email' => $user->email,
+            'role_id' => $user->role_id,
+            'phone' => $user->phone,
+            'sex' => $user->sex,
+            'age' => $user->age,
+            'lastname' => $user->name
+        ], 500);
+    } catch (\Throwable $th) {
+        return response()->json([
+            'status' => false,
+            'message' => $th->getMessage()
+        ], 500);
+    }
+    }
 }
