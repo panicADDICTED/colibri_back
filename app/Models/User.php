@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
     public function freightsUser()
     {
-        return $this->hasMany(Freight::class,'user_id', 'id');
+        return $this->hasMany(Freight::class,'client_id', 'id');
     }
 
     public function store()
