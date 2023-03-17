@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'sex' => 'Hombre',
             'age' => '22',
             'license_number' => '3223232323232323',
-            'role_id' => '1',
+            'role_id' => '4',
     ]);
 
     User::create([
