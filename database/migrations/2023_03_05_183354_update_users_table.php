@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('sex');
             $table->string('age');
+            $table->string('card_number')->nullable();
             $table->string('license_number')->nullable();
             $table->boolean('visible')->default(1);
             $table->softDeletes();

@@ -27,6 +27,19 @@ class UsersController extends Controller
         return response($users, 200);
     }
 
+    public function showClientsStore()
+    {
+        $users = User::where('visible', 1)->where('role_id', 1)->get();
+       
+        return response($users, 200);
+    }
+
+    public function showConductors()
+    {
+        $users = User::where('visible', 1)->where('role_id', 3)->get();
+        return response($users, 200);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -54,6 +67,7 @@ class UsersController extends Controller
         $user->phone = $request->phone;
         $user->sex = $request->sex;
         $user->age = $request->age;
+        $user->card_number = $request->card_number;
         $user->license_number = $request->license_number;
         if($request->role_id == 3){
         $user->vehicle_id = $request->vehicle_id;
@@ -88,6 +102,14 @@ class UsersController extends Controller
     public function showClient($id)
     {
         $user = User::find($id);
+        $user->freightsUser;
+        return response($user, 200);
+    }
+
+    public function showClientStore($id)
+    {
+        $user = User::find($id);
+        $user->store;
         $user->freightsUser;
         return response($user, 200);
     }
@@ -201,6 +223,7 @@ class UsersController extends Controller
         $user->sex = $request->sex;
         $user->age = $request->age;
         $user->license_number = $request->license_number;
+        $user->card_number = $request->card_number;
         $user->vehicle_id = $vehicle->id;
         $user->save();
         

@@ -21,9 +21,10 @@ class FreightSeeder extends Seeder
            'vehicle_id'=> 1,
            'quantity'=> '133',
            'price'=> 2000.00,
+           'comision'=> 2000.00 * .15,
            'direction'=> 'mauricio campos 267',
            'destiny'=> 'edmundo gamez 3483',
-           'status'=> '.En Revisión',
+           'status'=> 'En Revisión.',
            'observations'=> 'lleguen a las 6', 
         ]);
     }

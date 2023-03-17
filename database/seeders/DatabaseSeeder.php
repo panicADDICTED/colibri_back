@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MaterialSeeder::class,
             FreightSeeder::class,
+            StoreSeeder::class,
           
         ]);
         // \App\Models\User::factory(10)->create();

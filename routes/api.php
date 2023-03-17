@@ -26,15 +26,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
+Route::get('/login-movil/{email}/{password}', [AuthController::class, 'loginMovil']);
 
 //USER
 Route::resource('users', UsersController::class);
 Route::get('/all_clients', [UsersController::class, 'showClients']);
-Route::get('/login-movil/{email}/{password}', [AuthController::class, 'loginMovil']);
+Route::get('/all_clients_store', [UsersController::class, 'showClientsStore']);
+Route::get('/all_conductors', [UsersController::class, 'showConductors']);
 Route::post('/user/update/{id}', [UsersController::class, 'update']);
 Route::put('/user/delete/{id}', [UsersController::class, 'deleteUser']); 
-Route::get('/show-worker/{id}', [UsersController::class, 'showWorker']);
+Route::get('/show-conductor/{id}', [UsersController::class, 'showWorker']);
 Route::get('/show-client/{id}', [UsersController::class, 'showClient']);
+Route::get('/show-client-store/{id}', [UsersController::class, 'showClientStore']);
+
 Route::post('/register-user-store', [UsersController::class, 'registerUserStore']);
 Route::post('/register-user-conductor', [UsersController::class, 'registerUserConductor']);
 

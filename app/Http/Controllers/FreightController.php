@@ -44,6 +44,7 @@ class FreightController extends Controller
         $freight->vehicle_id = $request->vehicle_id;
         $freight->quantity = $request->quantity;
         $freight->price = $request->price;
+        $freight->comision = $request->price *.15;
         $freight->direction = $request->direction;
         $freight->destiny = $request->destiny;
         $freight->observations = $request->observations;
@@ -99,6 +100,7 @@ class FreightController extends Controller
         $freight->vehicle_id = $request->vehicle_id;
         $freight->quantity = $request->quantity;
         $freight->price = $request->price;
+        $freight->comision = $request->price *.15;
         $freight->direction = $request->direction;
         $freight->destiny = $request->destiny;
         $freight->observations = $request->observations;

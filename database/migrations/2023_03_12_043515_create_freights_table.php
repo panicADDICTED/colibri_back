@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('direction');
             $table->string('destiny');
             $table->float('price');
+            $table->float('comision');
             $table->text('observations')->nullable();            
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('vehicle_id');
