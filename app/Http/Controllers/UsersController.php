@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Freight;
 use App\Models\Store;
 use App\Models\User;
 use App\Models\Vehicle;
@@ -110,8 +111,8 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $user->store;
-        $user->freightsUser;
-        return response($user, 200);
+        $freights =  $freights = Freight::where('client_id',$id)->with('vehicle')->with('material')->get();
+        return response([$user, 'freights' => $freights], 200);
     }
 
     /**
