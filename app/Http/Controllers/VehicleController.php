@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Freight;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -67,9 +68,10 @@ class VehicleController extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::find($id);
-        $vehicle->freights;
-        $vehicle->freights->material;
-        return response($vehicle, 200);
+        $freights = Freight::where('vehicle_id',$id)->with('material')->get();
+        
+       
+        return response([$vehicle,'freights' => $freights], 200);
     }
 
     /**

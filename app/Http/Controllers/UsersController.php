@@ -29,14 +29,14 @@ class UsersController extends Controller
 
     public function showClientsStore()
     {
-        $users = User::where('visible', 1)->where('role_id', 1)->get();
+        $users = User::where('visible', 1)->where('role_id', 1)->with('store')->get();
        
         return response($users, 200);
     }
 
     public function showConductors()
     {
-        $users = User::where('visible', 1)->where('role_id', 3)->get();
+        $users = User::where('visible', 1)->where('role_id', 3)->with('vehicle')->get();
         return response($users, 200);
     }
 
