@@ -105,15 +105,39 @@ class AuthController extends Controller
         try {
        $user = User::where('email', $email)->first();
         return response()->json([
-            'status' => true,
-            'name' => $user->name,
-            'last_name' => $user->last_name,
+            '0' => true,
+            'id' => $user->id,
+            '1' => $user->email,
             'email' => $user->email,
+            '2' => $user->name,
+            'name' => $user->name,
+            '3' => $user->last_name,
+            'last_name' => $user->last_name,
+            '4' => $user->created_at,
+            'created_at' => $user->created_at,
+            '5' => $user->role_id,
             'role_id' => $user->role_id,
+            '6' => $user->phone,
             'phone' => $user->phone,
+            '7' => $user->sex,
             'sex' => $user->sex,
+            '8' => $user->age,
             'age' => $user->age,
-            'lastname' => $user->name
+            '9' => $user->license_number,
+            'license_number' => $user->license_number,
+            '10' => $user->visible,
+            'visible' => $user->visible,
+            '11' => $user->vehicle->mark,
+            'mark' => $user->vehicle->mark,
+            '12' => $user->vehicle->capacity,
+            'capacity' => $user->vehicle->capacity,
+            '13' => $user->vehicle->color,
+            'color' => $user->vehicle->color,
+            '14' => $user->vehicle->plates,
+            'visible' => $user->vehicle->plates,
+            '15' => $user->vehicle->policy,
+            'policy' => $user->vehicle->policy,
+
         ], 500);
     } catch (\Throwable $th) {
         return response()->json([
