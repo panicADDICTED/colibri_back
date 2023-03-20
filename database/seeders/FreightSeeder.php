@@ -17,7 +17,7 @@ class FreightSeeder extends Seeder
     {
         Freight::create([
            'material_id'=> 1, 
-           'client_id'=> 2,
+           'client_id'=> 3,
            'vehicle_id'=> 1,
            'quantity'=> '133',
            'price'=> 2000.00,
