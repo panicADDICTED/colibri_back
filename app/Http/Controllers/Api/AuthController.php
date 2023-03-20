@@ -101,7 +101,7 @@ class AuthController extends Controller
         }
     }
 
-    public function loginMovil($email, $password){
+    public function loginMovil($email){
         try {
        $user = User::where('email', $email)->first();
         return response()->json([
