@@ -134,7 +134,7 @@ class AuthController extends Controller
         '13' => $user->vehicle->color,
         'color' => $user->vehicle->color,
         '14' => $user->vehicle->plates,
-        'visible' => $user->vehicle->plates,
+        'plates' => $user->vehicle->plates,
         '15' => $user->vehicle->policy,
         'policy' => $user->vehicle->policy,
        ];
