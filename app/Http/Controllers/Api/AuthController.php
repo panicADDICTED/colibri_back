@@ -138,7 +138,7 @@ class AuthController extends Controller
         '15' => $user->vehicle->policy,
         'policy' => $user->vehicle->policy,
        ];
-        return response()->json(['datos' => [$datos]], 500);
+        return response()->json(['datos' => [$datos]], 200);
     } catch (\Throwable $th) {
         return response()->json([
             'status' => false,
