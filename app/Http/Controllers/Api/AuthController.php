@@ -105,7 +105,7 @@ class AuthController extends Controller
         try {
        $user = User::where('email', $email)->first();
         return response()->json([
-            '0' => true,
+            '0' => $user->id,
             'id' => $user->id,
             '1' => $user->email,
             'email' => $user->email,
