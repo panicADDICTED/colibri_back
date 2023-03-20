@@ -104,7 +104,7 @@ class AuthController extends Controller
     public function loginMovil($email){
         try {
        $user = User::where('email', $email)->first();
-        return response()->json([
+        return response()->json(['datos'=>[
             '0' => $user->id,
             'id' => $user->id,
             '1' => $user->email,
@@ -138,7 +138,7 @@ class AuthController extends Controller
             '15' => $user->vehicle->policy,
             'policy' => $user->vehicle->policy,
 
-        ], 500);
+        ]], 500);
     } catch (\Throwable $th) {
         return response()->json([
             'status' => false,
