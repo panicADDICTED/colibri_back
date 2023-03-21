@@ -46,31 +46,39 @@ class ChartsController extends Controller
     }
 
     public function freightsTotalAdmin(){
+        $sunday = Freight::where('created_at', 'like', '%2023-03-19%')->sum('price');
         $monday = Freight::where('created_at', 'like', '%2023-03-20%')->sum('price');
         $tuesday = Freight::where('created_at', 'like', '%2023-03-21%')->sum('price');
         $wednesday = Freight::where('created_at', 'like', '%2023-03-22%')->sum('price');
         $thursday = Freight::where('created_at', 'like', '%2023-03-23%')->sum('price');
         $friday = Freight::where('created_at', 'like', '%2023-03-24%')->sum('price');
+        $saturday = Freight::where('created_at', 'like', '%2023-03-25%')->sum('price');
         $total = Freight::sum('price');
+        $sunday_profit = Freight::where('created_at', 'like', '%2023-03-19%')->sum('comision');
         $monday_profit = Freight::where('created_at', 'like', '%2023-03-20%')->sum('comision');
         $tuesday_profit = Freight::where('created_at', 'like', '%2023-03-21%')->sum('comision');
         $wednesday_profit = Freight::where('created_at', 'like', '%2023-03-22%')->sum('comision');
         $thursday_profit = Freight::where('created_at', 'like', '%2023-03-23%')->sum('comision');
         $friday_profit = Freight::where('created_at', 'like', '%2023-03-24%')->sum('comision');
+        $saturday_profit = Freight::where('created_at', 'like', '%2023-03-25%')->sum('comision');
         $total_profit = Freight::sum('comision');
 
         return response()->json([
+            'sunday' => $sunday,
             'monday' => $monday,
             'tuesday' => $tuesday,
             'wednesday' => $wednesday,
             'thursday' => $thursday,
             'friday' => $friday,
+            'saturday' => $saturday,
             'total' => $total,
+            'sunday_profit' => $sunday_profit,
             'monday_profit' => $monday_profit,
             'tuesday_profit' => $tuesday_profit,
             'wednesday_profit' => $wednesday_profit,
             'thursday_profit' => $thursday_profit,
             'friday_profit' => $friday_profit,
+            'saturday_profit' => $saturday_profit,
             'total_profit' => $total_profit
     
       ], 200);
