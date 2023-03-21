@@ -104,6 +104,30 @@ class AuthController extends Controller
     public function loginMovil($email){
         try {
        $user = User::where('email', $email)->first();
+       if($user->id != 2 ){
+        $datos = [
+            '0' => $user->id,
+            'id' => $user->id,
+            '1' => $user->email,
+            'email' => $user->email,
+            '2' => $user->name,
+            'name' => $user->name,
+            '3' => $user->last_name,
+            'last_name' => $user->last_name,
+            '4' => $user->created_at,
+            'created_at' => $user->created_at,
+            '5' => $user->phone,
+            'phone' => $user->phone,
+            '6' => $user->sex,
+            'sex' => $user->sex,
+            '7' => $user->age,
+            'age' => $user->age,
+            '8' => $user->visible,
+            'visible' => $user->visible,
+           ];
+            return response()->json(['datos' => [$datos]], 200);
+
+       }else{
        $datos = [
         '0' => $user->id,
         'id' => $user->id,
@@ -141,6 +165,7 @@ class AuthController extends Controller
         'vehicle_id' => $user->vehicle_id,
        ];
         return response()->json(['datos' => [$datos]], 200);
+    }
     } catch (\Throwable $th) {
         return response()->json([
             'status' => false,

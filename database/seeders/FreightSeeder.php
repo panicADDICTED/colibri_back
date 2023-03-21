@@ -19,7 +19,7 @@ class FreightSeeder extends Seeder
            'material_id'=> 1, 
            'client_id'=> 3,
            'vehicle_id'=> 1,
-           'quantity'=> '133',
+           'quantity'=> '11',
            'price'=> 2000.00,
            'comision'=> 2000.00 * .15,
            'direction'=> 'mauricio campos 267',
@@ -27,5 +27,17 @@ class FreightSeeder extends Seeder
            'status'=> 'En Revisión.',
            'observations'=> 'lleguen a las 6', 
         ]);
+        Freight::create([
+            'material_id'=> 1, 
+            'client_id'=> 3,
+            'vehicle_id'=> 1,
+            'quantity'=> '11',
+            'price'=> 2100.00,
+            'comision'=> 2100.00 * .15,
+            'direction'=> 'mauricio campos 267',
+            'destiny'=> 'edmundo gamez 3483',
+            'status'=> 'Finalizado',
+            'observations'=> 'lleguen a las 6', 
+         ]);
     }
 }
