@@ -63,6 +63,7 @@ Route::put('/freight/update-status/{id}', [FreightController::class, 'updateStat
 
 //CHARTS
 Route::get('/charts/total-money', [ChartsController::class, 'freightsTotalAdmin']);
+Route::get('/charts/total-profits', [ChartsController::class, 'freightsTotalComision']);
 
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
