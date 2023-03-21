@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::where('visible', 1)->with('vehicle')->with('freightsUser.vehicle.conductor')->with('freightsUser.material')->get();
+        $users = User::where('visible', 1)->with('vehicle')->with('freightsUser.vehicle.conductor')->with('freightsUser.material')->with('vehicle.freights')->get();
         return response($users, 200);
     }
 
