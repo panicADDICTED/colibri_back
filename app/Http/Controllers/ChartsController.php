@@ -98,12 +98,12 @@ class ChartsController extends Controller
     }
 
     public function freightsProfitConductor($id){
-        $freights = Freight::where('vehicle_id',$id);
-        $monday = $freights->where('created_at', 'like', '%2023-03-20%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
-        $tuesday = $freights->where('created_at', 'like', '%2023-03-21%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
-        $wednesday = $freights->where('created_at', 'like', '%2023-03-22%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
-        $thursday = $freights->where('created_at', 'like', '%2023-03-23%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
-        $friday = $freights->where('created_at', 'like', '%2023-03-24%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
+        $freights = Freight::where('vehicle_id', $id);
+        $monday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-20%')->sum('price') -  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-20%')->sum('comision');
+        $tuesday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-21%')->sum('price') -  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-21%')->sum('comision');
+        $wednesday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-22%')->sum('price') -  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-22%')->sum('comision');
+        $thursday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-23%')->sum('price') -  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-23%')->sum('comision');
+        $friday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-24%')->sum('price') -  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-24%')->sum('comision');
         $total = $freights->sum('price')- $freights->sum('comision');
 
         return response()->json([
