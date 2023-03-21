@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\FreightController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RolesController;
@@ -59,5 +60,9 @@ Route::put('/material/delete/{id}', [MaterialController::class, 'deleteMaterial'
 Route::resource('freights', FreightController::class);
 Route::put('/freight/delete/{id}', [FreightController::class, 'deleteFreight']);
 Route::put('/freight/update-status/{id}', [FreightController::class, 'updateStatus']);
+
+//CHARTS
+Route::get('/charts/total-money', [ChartsController::class, 'freightsTotalAdmin']);
+
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
