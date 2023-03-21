@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 Route::get('/login-movil/{email}', [AuthController::class, 'loginMovil']);
-
+Route::get('/login-movil-client/{email}', [AuthController::class, 'loginMovilClient']);
 //USER
 Route::resource('users', UsersController::class);
 Route::get('/all_clients', [UsersController::class, 'showClients']);
