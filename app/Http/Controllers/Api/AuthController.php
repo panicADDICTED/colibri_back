@@ -152,7 +152,7 @@ class AuthController extends Controller
 
     public function loginMovilClient($email){
         try {
-       $user = User::where('email', $email)->first();
+       $user = User::where('email', $email)->whereNotIn('role_id', [3])->first();
       
        $datos = [
         '0' => $user->id,
@@ -175,7 +175,7 @@ class AuthController extends Controller
         'visible' => $user->visible,
        ];
         return response()->json(['datos' => [$datos]], 200);
-        
+
     } catch (\Throwable $th) {
         return response()->json([
             'status' => false,
