@@ -104,7 +104,7 @@ class ChartsController extends Controller
         $wednesday = $freights->where('created_at', 'like', '%2023-03-22%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
         $thursday = $freights->where('created_at', 'like', '%2023-03-23%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
         $friday = $freights->where('created_at', 'like', '%2023-03-24%')->sum('price') - $freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
-        $total = $freights->sum('price')-$freights->where('created_at', 'like', '%2023-03-20%')->sum('comision');
+        $total = $freights->sum('price')- $freights->sum('comision');
 
         return response()->json([
             'monday' => $monday,
