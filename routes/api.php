@@ -67,6 +67,9 @@ Route::get('/freights-mobile/{id}/{date}', [FreightController::class, 'freightsM
 Route::get('/charts/total-money', [ChartsController::class, 'freightsTotalAdmin']);
 Route::get('/charts/total-profits', [ChartsController::class, 'freightsTotalComision']);
 Route::get('/charts/profit-conductor/{vehicle_id}', [ChartsController::class, 'freightsProfitConductor']);
+Route::get('/charts/freights-conductor/{vehicle_id}', [ChartsController::class, 'freightsConductor']);
+Route::get('/charts/freights-profit-conductor/{vehicle_id}', [ChartsController::class, 'ProfitFreightsConductor']);
+Route::get('/charts/freights-client/{client_id}', [ChartsController::class, 'freightsClient']);
 Route::get('/charts/users-type', [ChartsController::class, 'UsersType']);
 Route::get('/charts/freights-users', [ChartsController::class, 'FreightsUsers']);
 

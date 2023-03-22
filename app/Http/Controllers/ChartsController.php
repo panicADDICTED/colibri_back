@@ -125,4 +125,53 @@ class ChartsController extends Controller
       ], 200);
 
     }
+
+    public function freightsConductor($id){
+        $freights = Freight::where('vehicle_id', $id);
+        $monday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-20%')->count();
+        $tuesday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-21%')->count();
+        $wednesday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-22%')->count();
+        $thursday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-23%')->count();
+        $friday =  Freight::where('vehicle_id', $id)->where('created_at', 'like', '%2023-03-24%')->count();
+        $total = $freights->count();
+
+        return response()->json([
+            'monday' => $monday,
+            'tuesday' => $tuesday,
+            'wednesday' => $wednesday,
+            'thursday' => $thursday,
+            'friday' => $friday,
+            'total' => $total
+    
+      ], 200);
+
+    }
+
+    public function freightsClient($id){
+        
+        $count_freights =  Freight::where('client_id', $id)->count();
+        $freights_money =  Freight::where('client_id', $id)->sum('price');
+       
+
+        return response()->json([
+            'count_freights' => $count_freights,
+            'freights_money' => $freights_money
+    
+      ], 200);
+
+    }
+
+    public function ProfitFreightsConductor($id){
+        
+        $count_freights =  Freight::where('vehicle_id', $id)->count();
+        $total_profit =  Freight::where('vehicle_id', $id)->sum('price') -  $total_profit =  Freight::where('vehicle_id', $id)->sum('comision');
+       
+
+        return response()->json([
+            'count_freights' => $count_freights,
+            'total_profit' => $total_profit
+    
+      ], 200);
+
+    }
 }

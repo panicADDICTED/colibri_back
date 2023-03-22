@@ -149,7 +149,7 @@ class FreightController extends Controller
        $freights = Freight::where('client_id', $id)->where('created_at', 'like', '%'.$date.'%' )->get();
         $datos = [];
        foreach($freights as $freight){
-       $datos = [
+       $datos[] = [
        
         'name' => $freight->material->name,
         'quantity' => $freight->quantity,
