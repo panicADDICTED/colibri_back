@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('phone_local')->nullable();
             $table->string('address');
             $table->unsignedBigInteger('user_id');
-
-
+            $table->boolean('visible')->default(1);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
         });

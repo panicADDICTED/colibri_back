@@ -8,6 +8,7 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\FreightController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\VehicleController;
 
 /*
@@ -68,6 +69,9 @@ Route::get('/charts/total-profits', [ChartsController::class, 'freightsTotalComi
 Route::get('/charts/profit-conductor/{vehicle_id}', [ChartsController::class, 'freightsProfitConductor']);
 Route::get('/charts/users-type', [ChartsController::class, 'UsersType']);
 Route::get('/charts/freights-users', [ChartsController::class, 'FreightsUsers']);
+
+Route::resource('stores', StoreController::class);
+Route::put('/store/delete/{id}', [StoreController::class, 'deleteStore']);
 
 
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
