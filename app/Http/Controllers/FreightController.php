@@ -144,5 +144,36 @@ class FreightController extends Controller
         return response($freight, 200);
     }
 
+    public function freightsMobile($id, $date){
+        try {
+       $freights = Freight::where('client_id', $id)->where('created_at', 'like', '%'.$date.'%' )->get();
+      
+       foreach($freights as $freight){
+       $datos = [
+       
+        'name' => $freight->material->name,
+        'quantity' => $freight->quantity,
+        'direction' => $freight->direction,
+        'destiny' => $freight->destiny,
+        'price' => $freight->price,
+        'observations' => $freight->observations,
+        'mark' => $freight->vehicle->mark,
+        'color' => $freight->vehicle->color,
+        'plates' => $freight->vehicle->plates,
+        'status' => $freight->status,
+        'created_at' => $freight->created_at,
+        'freight_id' => $freight->id,
+       ];
+    }
+        return response()->json(['datos' => [$datos], 'exito'=> 1], 200);
+
+    } catch (\Throwable $th) {
+        return response()->json([
+            'status' => false,
+            'message' => $th->getMessage()
+        ], 500);
+    }
+    }
+
 
 }

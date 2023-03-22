@@ -60,6 +60,7 @@ Route::put('/material/delete/{id}', [MaterialController::class, 'deleteMaterial'
 Route::resource('freights', FreightController::class);
 Route::put('/freight/delete/{id}', [FreightController::class, 'deleteFreight']);
 Route::put('/freight/update-status/{id}', [FreightController::class, 'updateStatus']);
+Route::get('/freights-mobile/{id}/{date}', [FreightController::class, 'freightsMobile']);
 
 //CHARTS
 Route::get('/charts/total-money', [ChartsController::class, 'freightsTotalAdmin']);
