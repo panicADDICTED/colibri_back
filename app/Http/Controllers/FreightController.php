@@ -147,7 +147,7 @@ class FreightController extends Controller
     public function freightsMobile($id, $date){
         try {
        $freights = Freight::where('client_id', $id)->where('created_at', 'like', '%'.$date.'%' )->get();
-      
+        $datos = [];
        foreach($freights as $freight){
        $datos = [
        
@@ -162,7 +162,7 @@ class FreightController extends Controller
         'plates' => $freight->vehicle->plates,
         'status' => $freight->status,
         'created_at' => $freight->created_at,
-        'freight_id' => $freight->id,
+        // 'freight_id' => $freight->id,
        ];
     }
         return response()->json(['datos' => [$datos], 'exito'=> 1], 200);
