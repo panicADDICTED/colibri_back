@@ -39,5 +39,21 @@ class FreightSeeder extends Seeder
             'status'=> 'Finalizado',
             'observations'=> 'lleguen a las 6', 
          ]);
+
+         Freight::create([
+            'material_id'=> 4, 
+            'client_id'=> 3,
+            'vehicle_id'=> 1,
+            'quantity'=> '6',
+            'price'=> 1800.00,
+            'comision'=> 1800.00 * .15,
+            'direction'=> 'mauricio campos 207',
+            'destiny'=> 'edmundo gamez 6532',
+            'status'=> 'En proceso',
+            'observations'=> 'lleguen a las 6', 
+         ]);
+    
     }
+
+    
 }
