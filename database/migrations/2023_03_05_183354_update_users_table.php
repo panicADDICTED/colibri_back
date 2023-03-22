@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('age');
             $table->string('card_number')->nullable();
             $table->string('license_number')->nullable();
+            $table->boolean('membership_status')->default(0);
+            $table->float('membership_quantity')->nullable();
             $table->boolean('visible')->default(1);
             $table->softDeletes();
         });

@@ -70,6 +70,8 @@ class UsersController extends Controller
         $user->age = $request->age;
         $user->card_number = $request->card_number;
         $user->license_number = $request->license_number;
+        $user->membership_status = $request->membership_status;
+        $user->membership_quantity = $request->membership_quantity;
         if($request->role_id == 3){
         $user->vehicle_id = $request->vehicle_id;
         }
@@ -186,6 +188,8 @@ class UsersController extends Controller
         $user->phone = $request->phone;
         $user->sex = $request->sex;
         $user->age = $request->age;
+        $user->membership_status = $request->membership_status;
+        $user->membership_quantity = $request->membership_quantity;
         $user->license_number = $request->license_number;
         if($request->role_id == 3){
         $user->vehicle_id = $request->vehicle_id;
@@ -226,6 +230,8 @@ class UsersController extends Controller
         $user->license_number = $request->license_number;
         $user->card_number = $request->card_number;
         $user->vehicle_id = $vehicle->id;
+        $user->membership_status = $request->membership_status;
+        $user->membership_quantity = $request->membership_quantity;
         $user->save();
         
         $user->vehicle;
