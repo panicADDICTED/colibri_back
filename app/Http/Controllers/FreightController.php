@@ -165,7 +165,7 @@ class FreightController extends Controller
         // 'freight_id' => $freight->id,
        ];
     }
-        return response()->json(['datos' => [$datos], 'exito'=> 1], 200);
+        return response()->json(['datos' => $datos, 'exito'=> 1], 200);
 
     } catch (\Throwable $th) {
         return response()->json([
