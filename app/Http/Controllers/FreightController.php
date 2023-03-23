@@ -150,7 +150,7 @@ class FreightController extends Controller
         $datos = [];
        foreach($freights as $freight){
        $datos[] = [
-       
+        'id'  => $freight->client_id,
         'name' => $freight->material->name,
         'quantity' => $freight->quantity,
         'direction' => $freight->direction,
