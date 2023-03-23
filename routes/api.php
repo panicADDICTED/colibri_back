@@ -75,6 +75,7 @@ Route::get('/charts/freights-profit-conductor/{vehicle_id}', [ChartsController::
 Route::get('/charts/freights-client/{client_id}', [ChartsController::class, 'freightsClient']);
 Route::get('/charts/users-type', [ChartsController::class, 'UsersType']);
 Route::get('/charts/freights-users', [ChartsController::class, 'FreightsUsers']);
+Route::get('/charts/all-profit', [ChartsController::class, 'allProfit']);
 
 Route::resource('stores', StoreController::class);
 Route::put('/store/delete/{id}', [StoreController::class, 'deleteStore']);

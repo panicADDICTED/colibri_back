@@ -174,4 +174,18 @@ class ChartsController extends Controller
       ], 200);
 
     }
+
+    public function allProfit(){
+        
+        $membership_profit =  User::where('membership_status', 1)->sum('membership_quantity');
+        $comision_profit =  Freight::where('status', 'Finalizado')->sum('comision');
+        $total = $membership_profit + $comision_profit;
+
+        return response()->json([
+            'membership_profit' => $membership_profit,
+            'comision_profit' => $comision_profit,
+            'total' =>  $total
+      ], 200);
+
+    }
 }
