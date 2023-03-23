@@ -144,6 +144,21 @@ class FreightController extends Controller
         return response($freight, 200);
     }
 
+    public function updateStatusMobile($id)
+    {
+        $freight = Freight::find($id);
+        $freight->status = "Finalizado";
+        $freight->save();
+        if($freight->status == "Finalizado"){
+            $vehicle = Vehicle::find($freight->vehicle_id);
+            $vehicle->status = 1;
+            $vehicle->save();
+            $freight->vehicle;
+            $datos = ['status'=> $freight->status];
+        }
+        return response()->json(['datos' => [$datos]], 200);
+    }
+
     public function freightsMobile($id, $date){
         try {
        $freights = Freight::where('client_id', $id)->where('created_at', 'like', '%'.$date.'%' )->get();

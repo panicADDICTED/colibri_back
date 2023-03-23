@@ -62,6 +62,8 @@ Route::resource('freights', FreightController::class);
 Route::put('/freight/delete/{id}', [FreightController::class, 'deleteFreight']);
 Route::put('/freight/update-status/{id}', [FreightController::class, 'updateStatus']);
 Route::get('/freights-mobile/{id}/{date}', [FreightController::class, 'freightsMobile']);
+Route::post('/freight/update-status-mobile/{id}', [FreightController::class, 'updateStatusMobile']);
+
 
 //CHARTS
 Route::get('/charts/total-money', [ChartsController::class, 'freightsTotalAdmin']);
