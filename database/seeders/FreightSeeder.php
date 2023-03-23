@@ -49,7 +49,7 @@ class FreightSeeder extends Seeder
             'comision'=> 1800.00 * .15,
             'direction'=> 'mauricio campos 207',
             'destiny'=> 'edmundo gamez 6532',
-            'status'=> 'En proceso',
+            'status'=> 'Finalizado',
             'observations'=> 'lleguen a las 6', 
          ]);
     

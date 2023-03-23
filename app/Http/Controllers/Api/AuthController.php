@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Freight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -104,6 +105,7 @@ class AuthController extends Controller
     public function loginMovil($email){
         try {
        $user = User::where('email', $email)->first();
+       $freight = Freight::where('vehicle_id', $user->vehicle_id)->whereNotIn('status', ["Finalizado"])->first();
       
        $datos = [
         '0' => $user->id,
@@ -140,6 +142,12 @@ class AuthController extends Controller
         'policy' => $user->vehicle->policy,
         '16' => $user->vehicle_id,
         'vehicle_id' => $user->vehicle_id,
+        'freight_id' => $freight->id,
+        'direction' => $freight->direction,
+        'destiny' => $freight->destiny,
+        'material' => $freight->material->name,
+        'price' => $freight->price,
+        'observations' => $freight->observations,
        ];
         return response()->json(['datos' => [$datos]], 200);
     } catch (\Throwable $th) {
