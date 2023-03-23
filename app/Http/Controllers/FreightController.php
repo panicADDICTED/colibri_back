@@ -154,7 +154,10 @@ class FreightController extends Controller
             $vehicle->status = 1;
             $vehicle->save();
             $freight->vehicle;
-            $datos = ['status'=> $freight->status];
+            $datos = [
+                '0'=> $freight->id,
+                'status'=> $freight->status
+            ];
         }
         return response()->json(['datos' => [$datos]], 200);
     }
