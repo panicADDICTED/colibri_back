@@ -40,6 +40,7 @@ Route::put('/user/delete/{id}', [UsersController::class, 'deleteUser']);
 Route::get('/show-conductor/{id}', [UsersController::class, 'showWorker']);
 Route::get('/show-client/{id}', [UsersController::class, 'showClient']);
 Route::get('/show-client-store/{id}', [UsersController::class, 'showClientStore']);
+Route::put('/update-membership/{id}', [UsersController::class, 'updateMembership']);
 
 Route::post('/register-user-store', [UsersController::class, 'registerUserStore']);
 Route::post('/register-user-conductor', [UsersController::class, 'registerUserConductor']);

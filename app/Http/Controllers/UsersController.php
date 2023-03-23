@@ -239,5 +239,14 @@ class UsersController extends Controller
             
     }
 
+    public function updateMembership($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->membership_quantity = $request->membership_quantity;
+        $user->membership_status = $request->membership_status;
+        $user->save();
+        return response($user, 200);
+    }
+
  
 }
