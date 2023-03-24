@@ -143,7 +143,7 @@ class AuthController extends Controller
         '16' => $user->vehicle_id,
         'vehicle_id' => $user->vehicle_id,
         '17' => $freight->id,
-        'flete' => $freight->id,
+        'freight_id' => $freight->id,
         '18' => $freight->direction,
         'direction' => $freight->direction,
         '19' => $freight->destiny,
