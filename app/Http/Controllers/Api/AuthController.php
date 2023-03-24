@@ -142,11 +142,17 @@ class AuthController extends Controller
         'policy' => $user->vehicle->policy,
         '16' => $user->vehicle_id,
         'vehicle_id' => $user->vehicle_id,
+        '17' => $freight->id,
         'freight_id' => $freight->id,
+        '18' => $freight->direction,
         'direction' => $freight->direction,
+        '19' => $freight->destiny,
         'destiny' => $freight->destiny,
+        '20' => $freight->material->name,
         'material' => $freight->material->name,
+        '21' => $freight->price,
         'price' => $freight->price,
+        '22' => $freight->observations,
         'observations' => $freight->observations,
        ];
         return response()->json(['datos' => [$datos]], 200);
