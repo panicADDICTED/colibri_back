@@ -24,7 +24,7 @@ class FreightSeeder extends Seeder
            'comision'=> 2000.00 * .15,
            'direction'=> 'mauricio campos 267',
            'destiny'=> 'edmundo gamez 3483',
-           'status'=> 'En Revisión.',
+           'status'=> 'Finalizado',
            'observations'=> 'lleguen a las 6', 
         ]);
         Freight::create([
