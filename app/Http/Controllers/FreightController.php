@@ -147,8 +147,15 @@ class FreightController extends Controller
     public function updateStatusMobile($id)
     {
         $freight = Freight::find($id);
-        $freight->status = "Finalizado";
-        $freight->save();
+        if($freight->status == "En Revisión"){
+        $freight->status = "Iniciado";
+        }elseif($freight->status == "Iniciado"){
+            $freight->status = "En Camino";
+        }elseif($freight->status == "En Camino"){
+            $freight->status = "Finalizado";
+        }
+
+            $freight->save();
         if($freight->status == "Finalizado"){
             $vehicle = Vehicle::find($freight->vehicle_id);
             $vehicle->status = 1;
