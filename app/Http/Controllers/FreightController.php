@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Freight;
 use App\Models\Vehicle;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FreightController extends Controller
@@ -186,7 +187,7 @@ class FreightController extends Controller
         'color' => $freight->vehicle->color,
         'plates' => $freight->vehicle->plates,
         'status' => $freight->status,
-        'created_at' => $freight->created_at,
+        'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $freight->created_at)->format('d/m/Y'),
         // 'freight_id' => $freight->id,
        ];
     }

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Freight;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -105,7 +106,11 @@ class AuthController extends Controller
     public function loginMovil($email){
         try {
        $user = User::where('email', $email)->first();
+
        $freight = Freight::where('vehicle_id', $user->vehicle_id)->whereNotIn('status', ["Finalizado"])->first();
+       if(!$freight){
+        $freight = Freight::where('vehicle_id', $user->vehicle_id)->orderBy('id', 'desc')->first();
+       }
       
        $datos = [
         '0' => $user->id,
@@ -117,7 +122,7 @@ class AuthController extends Controller
         '3' => $user->last_name,
         'last_name' => $user->last_name,
         '4' => $user->created_at,
-        'created_at' => $user->created_at,
+        'created_at' => Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->format('d/m/Y'),
         '5' => $user->role_id,
         'role_id' => $user->role_id,
         '6' => $user->phone,
@@ -150,8 +155,8 @@ class AuthController extends Controller
         'destiny' => $freight->destiny,
         '20' => $freight->material->name,
         'material' => $freight->material->name,
-        '21' => $freight->price,
-        'price' => $freight->price,
+        '21' => $freight->price - $freight->comision,
+        'price' => $freight->price - $freight->comision,
         '22' => $freight->observations,
         'observations' => $freight->observations,
        ];
@@ -178,7 +183,7 @@ class AuthController extends Controller
         '3' => $user->last_name,
         'last_name' => $user->last_name,
         '4' => $user->created_at,
-        'created_at' => $user->created_at,
+        'created_at' =>  Carbon::createFromFormat('Y-m-d H:i:s', $user->created_at)->format('d/m/Y'),
         '5' => $user->phone,
         'phone' => $user->phone,
         '6' => $user->sex,
