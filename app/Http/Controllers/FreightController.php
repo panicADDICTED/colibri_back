@@ -154,18 +154,18 @@ class FreightController extends Controller
         }elseif($freight->status == "En Camino"){
             $freight->status = "Finalizado";
         }
-
             $freight->save();
         if($freight->status == "Finalizado"){
             $vehicle = Vehicle::find($freight->vehicle_id);
             $vehicle->status = 1;
             $vehicle->save();
             $freight->vehicle;
-            $datos = [
-                '0'=> $freight->id,
-                'status'=> $freight->status
-            ];
+           
         }
+        $datos = [
+            '0'=> $freight->id,
+            'status'=> $freight->status
+        ];
         return response()->json(['datos' => [$datos]], 200);
     }
 
